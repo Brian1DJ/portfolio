@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ExternalLink, X, FileText } from "lucide-react";
+import { ExternalLink, X } from "lucide-react";
 import { GithubIcon } from "./BrandIcons";
 import { BarChart3 } from "lucide-react";
 import { ImagePlaceholder } from "./ImagePlaceholder";
