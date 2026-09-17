@@ -1,10 +1,6 @@
-/**
- * SITE CONFIG
- * -----------
- * Every external link and swappable piece of personal info lives here.
- * Replace the placeholder values below — nothing else in the codebase
- * needs to change when you do.
- */
+import telcoChurnDashboard from "../assets/dashboards/TelcoChurnDashboard.png";
+import salesAndProfit from "../assets/dashboards/SalesAndProfit.png";
+import research from "../assets/dashboards/Research.png";
 
 export const site = {
   name: "Brian Mathew De Jesus",
@@ -31,16 +27,14 @@ export const site = {
     // TODO: replace with your actual GitHub profile URL
     github: "https://github.com/Brian1DJ",
     // TODO: replace with your actual Tableau Public profile URL
-    tableau: "https://public.tableau.com/app/profile/brian.mathew.de.jesus",
-    // TODO: replace with a hosted resume PDF (e.g. /resume/Brian-De-Jesus-Resume.pdf after
-    // dropping the file into /public/resume/, or a Google Drive / hosted link)
-    resume: "#REPLACE_WITH_RESUME_LINK",
+    tableau: "https://public.tableau.com/app/profile/brian.mathew.de.jesus", 
+    resume: "/resume/BrianDeJesus_Resume_DataAnalyst.pdf",
     academia: "https://www.academia.edu/173618421/Translating_Taglish_to_English_A_Hybrid_Approach_Using_Naive_Bayes_Stemming_and_Deep_Learning?source=swp_share",
   },
 
   // Set to false to hide the "download resume" CTA until a real link exists
-  resumeReady: false,
-  graduationPhoto: "public/images/graduation.jpg",
+  resumeReady: true,
+  graduationPhoto: "/images/graduation.jpg",
 } as const;
 
 export type ProjectStatus = "completed" | "in-progress";
@@ -98,7 +92,7 @@ export const projects: Project[] = [
       github: "https://github.com/REPLACE_ME/telco-customer-churn",
       tableau: "https://public.tableau.com/app/profile/brian.mathew.de.jesus/viz/TELCOCUSTOMERCHURNANALYSIS/Dashboard1",
     },
-    previewImage: "src/assets/dashboards/TelcoChurnDashboard.png",
+    previewImage: telcoChurnDashboard,
     caseStudy: {
       overview:
         "A telecom provider wanted to understand why customers were leaving and which segments carried the highest churn risk. I cleaned, validated, and analyzed roughly 7,032 customer records, then built an interactive Tableau dashboard so the patterns are explorable rather than buried in a spreadsheet.",
@@ -166,7 +160,7 @@ export const projects: Project[] = [
         "https://public.tableau.com/views/Super_Store_Sales_17871355224590/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link",
       github: "https://github.com/Brian1DJ/superstore-sales-analytics",
     },
-    previewImage: "src/assets/dashboards/SalesAndProfit.png",
+    previewImage: salesAndProfit,
     caseStudy: {
       overview:
         "A retail superstore dataset covering orders, customers, products, and shipping. The goal is to understand where the business makes money, where it doesn't, and why — across product categories, customer segments, regions, and shipping methods.",
@@ -219,7 +213,7 @@ export const projects: Project[] = [
     links: {
       academia: "https://www.academia.edu/173618421/Translating_Taglish_to_English_A_Hybrid_Approach_Using_Naive_Bayes_Stemming_and_Deep_Learning?source=swp_share",
     },
-    previewImage: "src/assets/dashboards/Research.png",
+    previewImage: research,
     caseStudy: {
       overview:
         "My undergraduate thesis project: a hybrid pipeline that translates Taglish (mixed Tagalog-English) text into English, built to handle the code-switching common in informal Philippine online writing.",

@@ -3,6 +3,7 @@ import { SectionHeader } from "../components/SectionHeader";
 import { ImagePlaceholder } from "../components/ImagePlaceholder";
 import { Container } from "../components/Container";
 import { site } from "../config/site";
+import graduationPhoto from "../assets/images/graduation.jpg";
 
 export function Milestone() {
   return (
@@ -25,8 +26,7 @@ export function Milestone() {
           >
             <ImagePlaceholder
                 label="Graduation photo"
-                path="public/images/graduation.jpg"
-                src={site.graduationPhoto}
+                src={graduationPhoto}
                 className="aspect-[3/4] w-full max-w-[180px]"
               />
             <p className="max-w-xl self-center text-[15px] leading-relaxed text-slate">

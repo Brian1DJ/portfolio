@@ -3,6 +3,7 @@ import { SectionHeader } from "../components/SectionHeader";
 import { ImagePlaceholder } from "../components/ImagePlaceholder";
 import { Container } from "../components/Container";
 import { site } from "../config/site";
+import graduation from "../assets/images/graduation.jpg";
 
 export function About() {
   return (
@@ -24,8 +25,7 @@ export function About() {
           >
             <ImagePlaceholder
               label="Graduation photo"
-              path="public/images/graduation.jpg"
-              src={site.graduationPhoto}
+              src={graduation}
               className="aspect-[3/4] w-full max-w-[220px] rounded-[var(--radius-card)]"
             />
 
