@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color: neutral base + one working accent (see design notes in README) */
+  --color-paper: #faf9f6;
+  --color-paper-dim: #f2f1ec;
+  --color-ink: #171a1f;
+  --color-slate: #5a6270;
+  --color-slate-light: #8b93a0;
+  --color-line: #e2e1d9;
+  --color-ledger: #2f5d45;
+  --color-ledger-dim: #e7ede9;
+  --color-rust: #8c4a3d;
+  --color-rust-dim: #f3e6e3;
+
+  /* Type */
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+
+  /* Radius: sharp, spec-sheet feel, not the rounded SaaS-card default */
+  --radius-card: 3px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Respect reduced-motion preferences site-wide */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Visible keyboard focus, everywhere */
+:focus-visible {
+  outline: 2px solid var(--color-ledger);
+  outline-offset: 2px;
+}
