@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Container } from "./Container";
@@ -15,6 +15,21 @@ const NAV_LINKS = [
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const navigateToSection = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
+    const target = document.querySelector<HTMLElement>(href);
+
+    if (!target) return;
+
+    event.preventDefault();
+    setIsOpen(false);
+
+    // Wait for React to begin closing the animated menu before scrolling.
+    window.requestAnimationFrame(() => {
+      target.scrollIntoView();
+      window.history.pushState(null, "", href);
+    });
+  };
+
   // Close the mobile menu automatically if the viewport grows past mobile
   useEffect(() => {
     const onResize = () => {
@@ -30,7 +45,7 @@ export function Navbar() {
         <a
           href="#top"
           className="font-mono text-sm font-medium tracking-tight text-ink"
-          onClick={() => setIsOpen(false)}
+          onClick={(event) => navigateToSection(event, "#top")}
         >
           Brian Mathew De Jesus
         </a>
@@ -41,6 +56,7 @@ export function Navbar() {
             <a
               key={link.href}
               href={link.href}
+              onClick={(event) => navigateToSection(event, link.href)}
               className="text-sm text-slate transition-colors hover:text-ink"
             >
               {link.label}
@@ -81,7 +97,7 @@ export function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={() => setIsOpen(false)}
+                  onClick={(event) => navigateToSection(event, link.href)}
                   className="rounded-[var(--radius-card)] px-2 py-2.5 text-sm text-ink hover:bg-paper-dim"
                 >
                   {link.label}
@@ -89,7 +105,10 @@ export function Navbar() {
               ))}
               <a
                 href={site.resumeReady ? site.links.resume : "#contact"}
-                onClick={() => setIsOpen(false)}
+                onClick={(event) => {
+                  if (!site.resumeReady) navigateToSection(event, "#contact");
+                  else setIsOpen(false);
+                }}
                 className="mt-2 rounded-[var(--radius-card)] border border-ink bg-ink px-2 py-2.5 text-center text-sm font-medium text-paper"
               >
                 {site.resumeReady ? "Download resume" : "Get in touch"}
