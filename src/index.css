@@ -25,6 +25,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Keep hash-link destinations clear of the sticky navigation bar. */
+[id] {
+  scroll-margin-top: 4rem;
+}
+
 body {
   background-color: var(--color-paper);
   color: var(--color-ink);
